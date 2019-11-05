@@ -4,32 +4,30 @@ import {Row, Col, List, Avatar,Icon} from 'antd'
 import ReactMarkdown from 'react-markdown'
 import '../static/style/pages/home.css'
 
-let markdown='# P01:课程介绍和环境搭建\n' +
-  '[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n' +
-  '> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n\n' +
+let markdown='# P01:课程介绍和环境搭建\n'  +
    '**这是加粗的文字**\n\n' +
   '*这是倾斜的文字*`\n\n' +
   '***这是斜体加粗的文字***\n\n' +
   '~~这是加删除线的文字~~ \n\n'+
   '\`console.log(111)\` \n\n'+
-  '# p02:来个Hello World 初始Vue3.0\n' +
+  '## p02:来个Hello World 初始Vue3.0\n' +
   '> aaaaaaaaa\n' +
   '>> bbbbbbbbb\n' +
   '>>> cccccccccc\n'+
   '***\n\n\n' +
-  '# p03:Vue3.0基础知识讲解\n' +
+  '## p03:Vue3.0基础知识讲解\n' +
   '> aaaaaaaaa\n' +
   '>> bbbbbbbbb\n' +
   '>>> cccccccccc\n\n'+
-  '# p04:Vue3.0基础知识讲解\n' +
+  '## p04:Vue3.0基础知识讲解\n' +
   '> aaaaaaaaa\n' +
   '>> bbbbbbbbb\n' +
   '>>> cccccccccc\n\n'+
-  '#5 p05:Vue3.0基础知识讲解\n' +
+  '##5 p05:Vue3.0基础知识讲解\n' +
   '> aaaaaaaaa\n' +
   '>> bbbbbbbbb\n' +
   '>>> cccccccccc\n\n'+
-  '# p06:Vue3.0基础知识讲解\n' +
+  '## p06:Vue3.0基础知识讲解\n' +
   '> aaaaaaaaa\n' +
   '>> bbbbbbbbb\n' +
   '>>> cccccccccc\n\n'+
@@ -93,9 +91,9 @@ const PageDetail = () => (
       </Col>
       <Col style={{height:'100vh', overflow:'scroll', paddingLeft:30,paddingRight:30}} xs={24} sm={24} md={16} lg={16} xl={16}>
         <ReactMarkdown 
-        source={markdown} 
-        escapeHtml={false}  
-      />
+          source={markdown} 
+          escapeHtml={false}  
+        />
       </Col>
     </Row>
  </>
