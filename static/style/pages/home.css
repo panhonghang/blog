@@ -1,0 +1,14 @@
+.menu{
+    height: 100vh;
+    background-image:url('https://blogcdn.dandyweng.com/backgrounds/09.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+h4{
+    color: white;
+    font-size: 13px;
+}

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port=8009",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start --port=8009",
+    "start": "next start",
     "export": "npm run build && next export"
   },
   "dependencies": {
