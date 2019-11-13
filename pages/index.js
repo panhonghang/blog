@@ -1,28 +1,42 @@
-import React,{useState , useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import Head from 'next/head';
-import axios from 'axios';
 import {Row, Col, List, Avatar,Icon} from 'antd';
-import ReactMarkdown from 'react-markdown';
 import '../static/style/pages/home.css';
+import axios from 'axios';
 
-const PageDetail = () => {
-  
-  const [data,setData] = useState('# P01:课程介绍和环境搭建\n');
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8 }} />
+    {text}
+  </span>
+);
+
+const Home = () =>{
+  const [listData,setData] = useState([]);
   
   async function fetchData(){
-    const result = await axios('http://localhost:4000/blog/detail');
-    console.log(result.data.data)
-    setData(result.data.data[0]);
+    const result = await axios('http://localhost:4000/blog/index');
+    setData(result.data.data);
   }
 
   useEffect(()=>{
     fetchData();
   },[]);
-  
-  return(
+
+  // for (let i = 0; i < 23; i++) {
+  //   listData.push({
+  //     href: 'http://ant.design',
+  //     title: `ant design part ${i}`,
+  //     src: 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png',
+  //     description:
+  //       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+  //     });
+  // }
+
+  return (
     <>
       <Head>
-        <title>pageDetail</title>
+        <title>Home</title>
       </Head>
       <Row>
         <Col xs={24} sm={24} md={0} lg={0} xl={0}>
@@ -72,13 +86,48 @@ const PageDetail = () => {
           </div>
         </Col>
         <Col style={{height:'100vh', overflow:'scroll', paddingLeft:30,paddingRight:30}} xs={24} sm={24} md={16} lg={16} xl={16}>
-          <ReactMarkdown 
-            source={data} 
-            escapeHtml={false}  
+          <List
+            itemLayout="vertical"
+            size="large"
+  
+            pagination={{
+              onChange: page => {
+                console.log(page);
+              },
+              pageSize: 5,
+              hideOnSinglePag: true,
+              total:50,
+              showLessItems: true
+            }}
+  
+            dataSource={listData}
+  
+            renderItem={item => (
+             <List.Item
+                key={item.title}
+                actions={[
+                  <IconText type="like-o" text={item.stars} key="list-vertical-like-o" />,
+                  <IconText type="message" text="2" key="list-vertical-message" />,
+                ]}
+                extra={
+                  <img
+                    width={260}
+                    alt="logo"
+                    src={item.src}
+                  />
+                }
+               >
+                <List.Item.Meta
+                  title={<a href={item.href}>{item.title}</a>}
+                />
+                {item.description}
+              </List.Item>
+             )}
           />
         </Col>
       </Row>
-  </>
+   </>
   )
 }
-export default PageDetail;
+
+export default Home;
