@@ -5,14 +5,14 @@ import {Row, Col, List, Avatar,Icon} from 'antd';
 import ReactMarkdown from 'react-markdown';
 import '../static/style/pages/home.css';
 
-const PageDetail = () => {
+const PageDetail = (props) => {
   
   const [data,setData] = useState('# P01:课程介绍和环境搭建\n');
   
   async function fetchData(){
     const result = await axios('http://localhost:4000/blog/detail');
-    console.log(result.data.data)
-    setData(result.data.data[0]);
+    let index = props.url.query.page;
+    setData(result.data.data[index]);
   }
 
   useEffect(()=>{
@@ -32,7 +32,7 @@ const PageDetail = () => {
             <h3>人生如逆旅，我亦是行人。</h3>
             <Row style={{width:100,height:60}}>
               <Col xs={8} sm={8} md={8} lg={0} xl={0}>
-                <Icon onClick={()=>window.location.href = "/home"} type="home" />
+                <Icon onClick={()=>window.location.href = ""} type="home" />
               </Col>
               <Col xs={8} sm={8} md={8} lg={0} xl={0}>
                   <Icon onClick={()=>window.location.href = "https://github.com/panhonghang"} type="github" />
@@ -55,7 +55,7 @@ const PageDetail = () => {
             <h3>人生如逆旅，我亦是行人。</h3>
             <Row style={{width:100}}>
               <Col xs={0} sm={0} md={8} lg={8} xl={8}>
-                <Icon onClick={()=>window.location.href = '/home'} type="home" />
+                <Icon onClick={()=>window.location.href = '/'} type="home" />
               </Col>
               <Col xs={0} sm={0} md={8} lg={8} xl={8}>
                 <Icon onClick={()=>window.location.href = 'https://github.com/panhonghang'} type="github" />

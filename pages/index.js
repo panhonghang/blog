@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import {Row, Col, List, Avatar,Icon} from 'antd';
 import '../static/style/pages/home.css';
 import axios from 'axios';
@@ -46,7 +47,7 @@ const Home = () =>{
             <h3>人生如逆旅，我亦是行人。</h3>
             <Row style={{width:100,height:60}}>
               <Col xs={8} sm={8} md={8} lg={0} xl={0}>
-                <Icon onClick={()=>window.location.href = "/home"} type="home" />
+                <Icon onClick={()=>window.location.href = "/"} type="home" />
               </Col>
               <Col xs={8} sm={8} md={8} lg={0} xl={0}>
                   <Icon onClick={()=>window.location.href = "https://github.com/panhonghang"} type="github" />
@@ -69,7 +70,7 @@ const Home = () =>{
             <h3>人生如逆旅，我亦是行人。</h3>
             <Row style={{width:100}}>
               <Col xs={0} sm={0} md={8} lg={8} xl={8}>
-                <Icon onClick={()=>window.location.href = '/home'} type="home" />
+                <Icon onClick={()=>window.location.href = '/'} type="home" />
               </Col>
               <Col xs={0} sm={0} md={8} lg={8} xl={8}>
                 <Icon onClick={()=>window.location.href = 'https://github.com/panhonghang'} type="github" />
@@ -118,7 +119,7 @@ const Home = () =>{
                 }
                >
                 <List.Item.Meta
-                  title={<a href={item.href}>{item.title}</a>}
+                  title={<Link href={`PageDetail?page=${item.href}`}><a>{item.title}</a></Link>}
                 />
                 {item.description}
               </List.Item>
