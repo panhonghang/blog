@@ -7,18 +7,18 @@ import '../static/style/pages/home.css';
 
 const PageDetail = (props) => {
   
-  const [data,setData] = useState('# P01:课程介绍和环境搭建\n');
-  
-  async function fetchData(){
-    const result = await axios('http://localhost:4000/blog/detail');
-    let index = props.url.query.page;
-    setData(result.data.data[index]);
+  const [data,setData] = useState({markdown:''});  
+  function fetchData(){
+    // axios('http://localhost:4000/blog/detail').then((result)=>{
+    axios('http://localhost:4000/blog/detail').then((result)=>{
+      setData(result.data.data[props.url.query.page])
+    })
   }
 
   useEffect(()=>{
     fetchData();
   },[]);
-  
+
   return(
     <>
       <Head>
@@ -52,7 +52,7 @@ const PageDetail = (props) => {
           <div className='menu'>
             <Avatar style={{marginTop:80}} src='../static/1.jpg' size={80}></Avatar>
             <h1>黎曦的博客</h1>
-            <h3>人生如逆旅，我亦是行人。</h3>
+            <h3>人生如逆旅，我亦是行人</h3>
             <Row style={{width:100}}>
               <Col xs={0} sm={0} md={8} lg={8} xl={8}>
                 <Icon onClick={()=>window.location.href = '/'} type="home" />
@@ -73,7 +73,7 @@ const PageDetail = (props) => {
         </Col>
         <Col style={{height:'100vh', overflow:'scroll', paddingLeft:30,paddingRight:30}} xs={24} sm={24} md={16} lg={16} xl={16}>
           <ReactMarkdown 
-            source={data} 
+            source={data.markdown} 
             escapeHtml={false}  
           />
         </Col>

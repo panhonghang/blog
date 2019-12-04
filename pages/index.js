@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React ,{useEffect , useState} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import {Row, Col, List, Avatar,Icon} from 'antd';
@@ -16,6 +16,7 @@ const Home = () =>{
   const [listData,setData] = useState([]);
   
   async function fetchData(){
+    // const result = await axios('http://localhost:4000/blog/index');
     const result = await axios('http://localhost:4000/blog/index');
     setData(result.data.data);
   }
@@ -23,16 +24,6 @@ const Home = () =>{
   useEffect(()=>{
     fetchData();
   },[]);
-
-  // for (let i = 0; i < 23; i++) {
-  //   listData.push({
-  //     href: 'http://ant.design',
-  //     title: `ant design part ${i}`,
-  //     src: 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png',
-  //     description:
-  //       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-  //     });
-  // }
 
   return (
     <>
@@ -97,7 +88,7 @@ const Home = () =>{
               },
               pageSize: 5,
               hideOnSinglePag: true,
-              total:50,
+              total:5,
               showLessItems: true
             }}
   
