@@ -27,7 +27,7 @@ const PageDetail = (props) => {
       <PhoneMenu/>
       <Row>
         <PC/>
-        <Col style={{height:'100vh', overflow:'scroll', paddingLeft:30,paddingRight:30}} xs={24} sm={24} md={16} lg={16} xl={16}>
+        <Col style={{height:'100vh', overflow:'scroll', paddingLeft:30,paddingRight:30}}>
           <ReactMarkdown 
             source={data.markdown} 
             escapeHtml={false}  
