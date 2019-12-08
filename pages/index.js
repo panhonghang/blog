@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-05 20:43:32
- * @LastEditTime: 2019-12-06 22:58:25
+ * @LastEditTime: 2019-12-07 20:21:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \博客\blog\pages\index.js
@@ -22,11 +22,12 @@ const IconText = ({ type, text }) => (
   </span>
 );
 
-const Home = () =>{
+const Home = (props) =>{
+  
   const [listData,setData] = useState([]);
   
   async function fetchData(){
-    const result = await axios('http://localhost:4000/blog/index');
+    const result = await axios('http://panhonghang.varbee.com:4000/blog/index');
     setData(result.data.data);
   }
 
