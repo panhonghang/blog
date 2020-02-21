@@ -23,7 +23,7 @@ const Phone = () => {
               </Col>
             </Row>
             <Row style={{width:220, color: 'rgba(255,255,255,0.7)' }}>
-              <q>个人学习博客项目,前端使用 Next+Ant Desgin，管理端使用 Ant Desgin Pro,后端 Mysql+koa</q>
+              <q>个人学习博客项目,前端使用 Next+Ant Desgin,后端 Mysql+koa</q>
             </Row>
           </div>
         </Col>

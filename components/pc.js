@@ -23,7 +23,7 @@ const PC = () => {
         </Col>
       </Row>
       <Row style={{width:300, marginTop:20,marginBottom: 140, color: 'rgba(255,255,255,0.7)' }}>
-        <q>个人学习博客项目,前端使用 Next+Ant Desgin，管理端使用 Ant Desgin Pro,后端 Mysql+koa</q>
+        <q>个人学习博客项目,前端使用 Next+Ant Desgin,后端 Mysql+koa</q>
       </Row>
       <h4>系统由 React+Node+Ant Desgin驱动</h4>
       <h4>panhonghang.top</h4>
