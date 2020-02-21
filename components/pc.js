@@ -7,7 +7,7 @@ const PC = () => {
 
   const menu = Number==8?(
     <div className='menu'>
-      <img className='icon'  onClick={()=>setNumber(1)} src='../static/menu.png' size={80}/>
+      <img className='icon'  onClick={()=>setNumber(2)} src='../static/menu.png' size={80}/>
       <Avatar style={{marginTop:80}} src='../static/1.jpg' size={80}></Avatar>
       <h1>黎曦的博客</h1>
       <h3>人生如逆旅，我亦是行人。</h3>

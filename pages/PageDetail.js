@@ -8,6 +8,7 @@
  */
 import React,{useState , useEffect} from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import axios from 'axios';
 import {Row, Col, List, Avatar,Icon} from 'antd';
 import ReactMarkdown from 'react-markdown';
@@ -41,6 +42,7 @@ const PageDetail = (props) => {
             source={data.markdown} 
             escapeHtml={false}  
           />
+          <Link href='./'><a className='return'>返回</a></Link>
         </Col>
       </Row>
   </>
