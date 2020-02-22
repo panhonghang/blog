@@ -28,7 +28,6 @@ const Home = (props) =>{
   
   async function fetchData(){
     const result = await axios('http://panhonghang.varbee.com:4000/blog/index');
-    console.log(result)
     setData(result.data.data);
   }
 
@@ -55,7 +54,7 @@ const Home = (props) =>{
               },
               pageSize: 4,
               hideOnSinglePag: true,
-              total:8,
+              total:12,
               showLessItems: true
             }}
   

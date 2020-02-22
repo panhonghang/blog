@@ -21,12 +21,16 @@ const PageDetail = (props) => {
   const [data,setData] = useState({markdown:''});  
   function fetchData(){
     axios('http://panhonghang.varbee.com:4000/blog/detail').then((result)=>{
-      setData(result.data.data[props.url.query.page])
+      setData(result.data.data[props.url.query.page]);
+      localStorage.setItem('PageDetailArray', JSON.stringify(result.data.data))
+      localStorage.setItem('PageDetailPage', props.url.query.page)
     })
   }
 
   useEffect(()=>{
-    fetchData();
+    localStorage.getItem('PageDetailArray')&&!props.url.query.page?setData(
+      JSON.parse(localStorage.getItem('PageDetailArray'))[localStorage.getItem('PageDetailPage')]
+      ):fetchData();
   },[]);
 
   return(
