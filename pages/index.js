@@ -29,10 +29,13 @@ const Home = (props) =>{
   async function fetchData(){
     const result = await axios('http://panhonghang.varbee.com:4000/blog/index');
     setData(result.data.data);
+    localStorage.setItem('PageIndexArray', JSON.stringify(result.data.data))
   }
 
   useEffect(()=>{
-    fetchData();
+    localStorage.getItem('PageIndexArray')?setData(
+      JSON.parse(localStorage.getItem('PageIndexArray'))
+      ):fetchData();
   },[]);
 
   return (
@@ -76,7 +79,7 @@ const Home = (props) =>{
                 }
                >
                 <List.Item.Meta
-                  title={<Link href={`PageDetail?page=${item.href}`}><a className='pageName'>{item.title}</a></Link>}
+                  title={<Link href={ {pathname: '/PageDetail', query: { page: item.href }}}><a className='pageName'>{item.title}</a></Link>}
                 />
                 {item.description}
               </List.Item>
